@@ -7,7 +7,7 @@
 5. Seed test data: `php artisan translations:seed`
 6. Generate API token: `php artisan sanctum:issue-token`
 7. Seed user `php artisan db:seed --class=UserSeeder`
-
+8. run project `php artisan serve`
 
 ## Endpoints
 - POST /api/translations - Create translation
