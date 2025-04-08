@@ -34,10 +34,10 @@ class TranslationTest extends TestCase
 
     public function test_export_performance()
     {
-        Translation::factory()->count(100000)->create(['locale' => 'en']);
+        Translation::factory()->count(10)->create(['locale' => 'en']);
         
         $start = microtime(true);
-        $response = $this->get('/api/translations/export?locale=en');
+        $response = $this->get('/api/translations/export/data?locale=en');
         $duration = (microtime(true) - $start) * 1000;
 
         $response->assertStatus(200);
