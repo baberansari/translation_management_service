@@ -3,6 +3,7 @@
 ## Setup Instructions
 1. Clone the repository
 2. Copy .env.example to .env and configure your database settings
+3. Run composer install 
 4. Run `php artisan migrate`
 5. Seed test data: `php artisan translations:seed`
 6. Generate API token: `php artisan sanctum:issue-token`
