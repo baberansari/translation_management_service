@@ -1,0 +1,183 @@
+{
+	"info": {
+		"_postman_id": "31c5b272-b987-4f88-883e-976e791a3afa",
+		"name": "Translation Management API",
+		"description": "API collection for Translation Management Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19362377",
+		"_collection_link": "https://martian-astronaut-28266.postman.co/workspace/Lucid-Web-Solution~74e11f67-3949-4ea6-b092-1c4217e4bb54/collection/19362377-31c5b272-b987-4f88-883e-976e791a3afa?action=share&source=collection_link&creator=19362377"
+	},
+	"item": [
+		{
+			"name": "Create Translation",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"key\": \"welcome_message\",\n    \"locale\": \"en\",\n    \"value\": \"Welcome to our application\",\n    \"tags\": [\"web\", \"desktop\"]\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/translations",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"translations"
+					]
+				},
+				"description": "Create a new translation entry"
+			},
+			"response": []
+		},
+		{
+			"name": "Update Translation",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"value\": \"Updated welcome message\",\n    \"tags\": [\"web\", \"mobile\"]\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/translations/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"translations",
+						"1"
+					]
+				},
+				"description": "Update an existing translation (replace 1 with actual ID)"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Translation",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/translations/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"translations",
+						"1"
+					]
+				},
+				"description": "Retrieve a specific translation (replace 1 with actual ID)"
+			},
+			"response": []
+		},
+		{
+			"name": "Search Translations",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/translations/search/data?locale=en&key=welcome&tags[]=web",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"translations",
+						"search",
+						"data"
+					],
+					"query": [
+						{
+							"key": "locale",
+							"value": "en"
+						},
+						{
+							"key": "key",
+							"value": "welcome"
+						},
+						{
+							"key": "tags[]",
+							"value": "web"
+						}
+					]
+				},
+				"description": "Search translations with various parameters"
+			},
+			"response": []
+		},
+		{
+			"name": "Export Translations",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/translations/export/data?locale=en",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"translations",
+						"export",
+						"data"
+					],
+					"query": [
+						{
+							"key": "locale",
+							"value": "en"
+						}
+					]
+				},
+				"description": "Export all translations for a specific locale as JSON"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Token",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/get-token",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"get-token"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8000/api"
+		},
+		{
+			"key": "token",
+			"value": "your-sanctum-token-here"
+		}
+	]
+}
